@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {WikipediaService} from './wikipedia.service';
+import {WikipediaResponse} from './wikipedia.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent {
   onTerm(term: string) {
     this.wikipediaService
       .search(term)
-      .subscribe((response: any) => { this.pages = response.query.search});
+      .subscribe(pages =>  this.pages = pages );
 
   }
 }
